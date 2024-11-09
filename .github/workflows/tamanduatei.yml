@@ -24,8 +24,9 @@ jobs:
       - name: Run Notebook
         run: |
           papermill JOTFORM VU - TAMANDUATI.ipynb
-
       - name: Install dependencies
         run: |
-          pip install nbconvert papermill pandas numpy  # Adicione as dependências do seu projeto
+         pip install nbconvert papermill pandas numpy  # Inclua outras bibliotecas que seu notebook usa
 
+
+      
