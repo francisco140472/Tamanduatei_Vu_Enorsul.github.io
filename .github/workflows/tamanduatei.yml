@@ -1,0 +1,20 @@
+name: Atualizar e Rodar Código
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # Executa a cada 15 minutos
+
+jobs:
+  run_colab:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v2
+
+      - name: Instalar Dependências
+        run: |
+          pip install -r requirements.txt  # Instale as dependências que o seu código precisa
+
+      - name: Rodar o código
+        run: |
+          python seu_codigo.py
