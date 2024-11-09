@@ -24,4 +24,4 @@ jobs:
 
       - name: Execute Notebook with Papermill
         run: |
-          papermill J/content/Tamanduatei_Vu_Enorsul.github.io
+           papermill "JOTFORM VU - TAMANDUATI.ipynb" "JOTFORM VU - TAMANDUATI_output.ipynb"
