@@ -24,4 +24,4 @@ jobs:
 
       - name: Execute Notebook with Papermill
         run: |
-           papermill "JOTFORM VU - TAMANDUATI.ipynb" "JOTFORM VU - TAMANDUATI_output.ipynb"
+            papermill JOTFORM_VU_TAMANDUATI.ipynb JOTFORM_VU_TAMANDUATI_output.ipynb
