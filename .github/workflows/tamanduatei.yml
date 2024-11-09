@@ -1,20 +1,15 @@
-name: Atualizar e Rodar Código
+name: Colab Sync
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # Executa a cada 15 minutos
+    - cron: '0 8 * * *'  # Executa diariamente às 8:00 UTC
 
 jobs:
-  run_colab:
+  sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do código
+      - name: Checkout repo
         uses: actions/checkout@v2
-
-      - name: Instalar Dependências
+      - name: Run Colab Notebook
         run: |
-          pip install -r requirements.txt  # Instale as dependências que o seu código precisa
-
-      - name: Rodar o código
-        run: |
-          python seu_codigo.py
+          # Comandos para rodar o notebook e salvar no GitHub
