@@ -1,20 +1,27 @@
-name: Atualizar e Rodar Código
+name: Run Colab Notebook
 
 on:
+  workflow_dispatch:  # Permite iniciar o workflow manualmente
   schedule:
-    - cron: '*/15 * * * *'  # Executa a cada 15 minutos
+    - cron: '0 8 * * *'  # Executa diariamente às 8:00 UTC
 
 jobs:
-  run_colab:
+  execute-notebook:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout do código
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Instalar Dependências
-        run: |
-          pip install -r requirements.txt  # Instale as dependências que o seu código precisa
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
 
-      - name: Rodar o código
+      - name: Install dependencies
         run: |
-          python seu_codigo.py
+          pip install nbconvert papermill pandas numpy  # Outras dependências necessárias
+
+      - name: Execute Notebook with Papermill
+  run: |
+    papermill JOTFORM_VU_TAMANDUATI.ipynb JOTFORM_VU_TAMANDUATI_output.ipynb
