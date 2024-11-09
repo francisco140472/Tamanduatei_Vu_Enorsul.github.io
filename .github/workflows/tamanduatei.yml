@@ -1,6 +1,7 @@
 name: Colab Sync
 
 on:
+  workflow_dispatch:  # Para execução manual do workflow
   schedule:
     - cron: '0 8 * * *'  # Executa diariamente às 8:00 UTC
 
@@ -8,8 +9,18 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Run Colab Notebook
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
         run: |
-          # Comandos para rodar o notebook e salvar no GitHub
+          pip install nbconvert papermill
+
+      - name: Run Notebook
+        run: |
+          papermill JOTFORM VU - TAMANDUATI.ipynb
