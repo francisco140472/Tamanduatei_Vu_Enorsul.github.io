@@ -1,4 +1,4 @@
-name: colab sync
+name: Colab sync
 
 on:
   workflow_dispatch:  # Permite iniciar o workflow manualmente
