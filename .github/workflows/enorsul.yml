@@ -1,0 +1,30 @@
+name: Colab sync
+
+on:
+  workflow_dispatch:  
+  schedule:
+    - cron: '0 8 * * *'  
+
+jobs:
+  execute-notebook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+        run: |
+          pip install nbconvert papermill pandas numpy  # Adicione outras dependências necessárias
+
+      - name: List Directory
+        run: ls -R  # Verifica se o notebook está no local correto
+
+      - name: Execute Notebook with Papermill
+        run: |
+          papermill JOTFORM_VU_TAMANDUATI.ipynb JOTFORM_VU_TAMANDUATI_output.ipynb
