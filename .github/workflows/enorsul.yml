@@ -27,8 +27,9 @@ jobs:
         run: |
           pip freeze
 
-      - name: List Directory
-        run: ls -R  # Verifica se o notebook está no local correto
+      - name: List files in repository
+        run: |
+          ls -R  # Verifica se o notebook está no local correto
 
       - name: Execute Notebook with Papermill (Verbose)
         run: |
