@@ -1,9 +1,9 @@
 name: Colab sync
 
 on:
-  workflow_dispatch:  # Permite iniciar o workflow manualmente
+  workflow_dispatch:  
   schedule:
-    - cron: '0 8 * * *'  # Executa diariamente às 8:00 UTC
+    - cron: '0 8 * * *'  
 
 jobs:
   execute-notebook:
@@ -20,8 +20,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install nbconvert papermill pandas numpy  # Outras dependências necessárias
+          pip install nbconvert papermill pandas numpy  # Adicione outras dependências necessárias
+
+      - name: List Directory
+        run: ls -R  # Verifica se o notebook está no local correto
 
       - name: Execute Notebook with Papermill
         run: |
-         papermill JOTFORM_VU_TAMANDUATI.ipynb JOTFORM_VU_TAMANDUATI_output.ipynb
+          papermill JOTFORM_VU_TAMANDUATI.ipynb JOTFORM_VU_TAMANDUATI_output.ipynb
