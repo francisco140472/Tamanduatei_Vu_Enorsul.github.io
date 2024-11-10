@@ -32,4 +32,4 @@ jobs:
 
       - name: Execute Notebook with Papermill (Verbose)
         run: |
-          papermill JOTFORM_VU_TAMANDUATI.ipynb JOTFORM_VU_TAMANDUATI_output.ipynb
+          papermill -v 'JOTFORM VU - TAMANDUATI.ipynb' 'JOTFORM VU - TAMANDUATI_output.ipynb'
