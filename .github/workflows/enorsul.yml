@@ -1,4 +1,4 @@
-name: Colab sync
+xname: Colab sync
 
 on:
   workflow_dispatch:  
@@ -25,4 +25,4 @@ jobs:
 
       - name: Execute Notebook with Papermill
         run: |
-          papermill 'JOTFORM_VU_TAMANDUATI.ipynb' 'JOTFORM_VU_TAMANDUATI_output.ipynb'
+          papermill 'JOTFORM_VU_TAMANDUATI.ipynb' 'index.ipynb'
