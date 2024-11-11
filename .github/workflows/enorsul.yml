@@ -23,14 +23,6 @@ jobs:
           pip install --upgrade pip
           pip install nbconvert papermill pandas numpy  # Outras dependências necessárias
 
-      - name: Check installed packages
+      - name: Execute Notebook with Papermill
         run: |
-          pip freeze
-
-      - name: List files in repository
-        run: |
-          ls -R  # Verifica se o notebook está no local correto
-
-      - name: Execute Notebook with Papermill (Verbose)
-        run: |
-          papermill -v 'JOTFORM VU - TAMANDUATI.ipynb' 'JOTFORM VU - TAMANDUATI_output.ipynb'
+          papermill 'JOTFORM VU - TAMANDUATI.ipynb' 'JOTFORM VU - TAMANDUATI_output.ipynb'
