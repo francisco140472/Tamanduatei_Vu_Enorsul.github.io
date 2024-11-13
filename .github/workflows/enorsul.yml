@@ -19,7 +19,7 @@ jobs:
         run: ls -la
 
       - name: List files in notebooks directory
-        run: ls -la /content/drive/MyDrive/TAMANDUATEI/JOTFORM_VU_TAMANDUATI.ipynb # Substitua pelo caminho correto
+        run: ls -la /content/Tamanduatei_Vu_Enorsul.github.io # Substitua pelo caminho correto
 
       - name: Run papermill
         run: |
