@@ -25,4 +25,4 @@ jobs:
 
       - name: Execute Notebook with Papermill
         run: |
-          papermill 'JOTFORM_VU_TAMANDUATI.ipynb' 'JOTFORM_VU_TAMANDUATI_output.ipynb'
+          papermill '/content/drive/MyDrive/TAMANDUATEI/JOTFORM_VU_TAMANDUATI.ipynb' '/content/drive/MyDrive/TAMANDUATEI/JOTFORM_VU_TAMANDUATI_output.ipynb'
