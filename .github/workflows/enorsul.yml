@@ -6,23 +6,21 @@ on:
     - cron: '0 8 * * *'  
 
 jobs:
-  execute-notebook:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Check out the repository
         uses: actions/checkout@v2
 
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
+      - name: Check current directory
+        run: pwd
 
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install nbconvert papermill pandas numpy  # Outras dependências necessárias
+      - name: List files in root directory
+        run: ls -la
 
-      - name: Execute Notebook with Papermill
+      - name: List files in notebooks directory
+        run: ls -la /content/drive/MyDrive/TAMANDUATEI/JOTFORM_VU_TAMANDUATI.ipynb # Substitua pelo caminho correto
+
+      - name: Run papermill
         run: |
-          papermill 'JOTFORM_VU_TAMANDUATI.ipynb JOTFORM_VU_TAMANDUATI_output.ipynb' 
+          papermill path/to/your/notebooks/JOTFORM_VU_TAMANDUATI.ipynb path/to/your/notebooks/JOTFORM_VU_TAMANDUATI_output.ipynb
